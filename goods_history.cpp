@@ -1,6 +1,7 @@
-#include "goods_history.h"
+#include "UI_h/goods_history.h"
 #include "ui_goods_history.h"
-#include "goods.h"
+#include "Database/goods.h"
+
 #include <QFont>
 
 goods_history::goods_history(QWidget *parent) :

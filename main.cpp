@@ -8,8 +8,8 @@
 #include <QDebug>
 #include <QtSql>
 
-#include "login_window.h"
-#include "goods_manage_window.h"
+#include "UI_h/login_window.h"
+#include "UI_h/goods_manage_window.h"
 
 
 

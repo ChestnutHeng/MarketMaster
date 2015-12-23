@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2015-12-03T16:31:47
+# Project created by QtCreator 2015-12-23T14:58:15
 #
 #-------------------------------------------------
 
@@ -14,33 +14,29 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    login_window.cpp \
-    user_manage_window.cpp \
     goods_manage_window.cpp \
+    login_window.cpp \
     goods_info.cpp \
+    user_manage_window.cpp \
     goods_history.cpp
 
 HEADERS  += mainwindow.h \
-    people.h \
-    login_window.h \
-    goods.h \
-    user_manage_window.h \
-    goods_manage_window.h \
-    goods_info.h \
-    goods_history.h
-
-FORMS    += mainwindow.ui \
-    login_window.ui \
-    user_manage_window.ui \
-    goods_manage_window.ui \
-    goods_info.ui \
-    goods_history.ui
-
-DISTFILES +=
-LIBS += -ldl
+    Database/people.h \
+    Database/goods.h \
+    UI_h/goods_history.h \
+    UI_h/goods_manage_window.h \
+    UI_h/login_window.h \
+    UI_h/user_manage_window.h \
+    UI_h/goods_info.h
 
 RESOURCES += \
-    logo.qrc \
-    icon.qrc
+    Res/logo.qrc \
+    Res/icon.qrc
 
-RC_FILE += icon.rc
+FORMS += \
+    UI/user_manage_window.ui \
+    UI/goods_manage_window.ui \
+    UI/goods_info.ui \
+    UI/goods_history.ui \
+    UI/login_window.ui \
+    UI/mainwindow.ui

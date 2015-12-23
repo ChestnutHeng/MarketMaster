@@ -3,7 +3,9 @@
 
 #include <QDialog>
 #include "mainwindow.h"
-#include "goods.h"
+
+#include "Database/goods.h"
+
 namespace Ui {
     class goods_info;
 }

@@ -14,8 +14,8 @@
    <string>MarketMaster</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="logo.qrc">
-    <normaloff>:/logo/logo</normaloff>:/logo/logo</iconset>
+   <iconset resource="../Res/icon.qrc">
+    <normaloff>:/logo/icc.ico</normaloff>:/logo/icc.ico</iconset>
   </property>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
@@ -110,7 +110,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="logo.qrc"/>
+  <include location="../Res/icon.qrc"/>
  </resources>
  <connections/>
 </ui>

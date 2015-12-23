@@ -1,7 +1,8 @@
 #ifndef LOGIN_WINDOW
 #define LOGIN_WINDOW
+
 #include <QDialog>
-#include "people.h"
+class QPeopleDB;
 
 namespace Ui {
     class login_window;

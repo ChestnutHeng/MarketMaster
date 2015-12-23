@@ -1,9 +1,10 @@
-#include "goods_manage_window.h"
 #include "ui_goods_manage_window.h"
 
-#include "goods.h"
-#include "people.h"
-#include "goods_info.h"
+#include "UI_h/goods_manage_window.h"
+#include "Database/goods.h"
+#include "Database/people.h"
+#include "UI_h/goods_info.h"
+
 #include <QMessageBox>
 #include <QTableWidget>
 

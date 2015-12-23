@@ -1,4 +1,5 @@
-#include "goods_info.h"
+#include "UI_h/goods_info.h"
+
 #include "ui_goods_info.h"
 
 goods_info::goods_info(QWidget *parent):

@@ -7,7 +7,8 @@
 #include <QSql>
 #include <QSqlError>
 #include <QDebug>
-//#define QDEBUG
+
+#define QDEBUG
 
 struct SALE_GOODS{
     QString code;

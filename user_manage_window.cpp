@@ -1,7 +1,10 @@
-#include "user_manage_window.h"
 #include "ui_user_manage_window.h"
 #include "mainwindow.h"
-#include "login_window.h"
+
+#include "UI_h/user_manage_window.h"
+#include "UI_h/login_window.h"
+#include "Database/people.h"
+
 #include <QMessageBox>
 
 user_manage_window::user_manage_window(QWidget *parent):

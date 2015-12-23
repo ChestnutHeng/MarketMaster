@@ -7,6 +7,8 @@
 #include <QSqlError>
 #include <QDebug>
 
+#define PDEBUG
+
 enum PERMISSION{ADMIN,USER,GUEST};
 
 struct PEOPLE{
@@ -32,7 +34,7 @@ public:
                                   people_db.lastError().text());
         }else{
             qDebug() << "succ open DB.\n";
-            /*
+#ifdef PDEBUG
             QSqlQuery query(this -> people_db);
             query.exec("drop table people;");
             query.exec("create table people(\
@@ -45,7 +47,7 @@ public:
                        values ('admin','admin',0);");
             query.exec("insert into people (user,pwd,permission)\
                                values ('mary','mary',1);");
-            */
+#endif
         }
 
     }

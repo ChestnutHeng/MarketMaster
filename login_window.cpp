@@ -1,6 +1,9 @@
-#include "login_window.h"
+#include "UI_h/login_window.h"
 #include "ui_login_window.h"
+#include "Database/people.h"
+
 #include "mainwindow.h"
+
 #include <QImage>
 #include <QPixmap>
 

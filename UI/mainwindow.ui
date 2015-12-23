@@ -14,7 +14,7 @@
    <string>MarketMaster</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="logo.qrc">
+   <iconset resource="../Res/logo.qrc">
     <normaloff>:/logo/logo</normaloff>:/logo/logo</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -263,7 +263,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="logo.qrc"/>
+  <include location="../Res/logo.qrc"/>
  </resources>
  <connections/>
 </ui>

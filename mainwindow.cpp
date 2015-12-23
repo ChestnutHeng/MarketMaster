@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "people.h"
-#include "goods.h"
-#include "user_manage_window.h"
-#include "goods_manage_window.h"
-#include "goods_history.h"
+
+#include "Database/people.h"
+#include "Database/goods.h"
+#include "UI_h/user_manage_window.h"
+#include "UI_h/goods_manage_window.h"
+#include "UI_h/goods_history.h"
+
 #include <QTableWidget>
 
 void insert_row(QTableWidget *table_widget,QStringList str);

@@ -1,5 +1,6 @@
 #ifndef GOODS_MANAGE_WINDOW
 #define GOODS_MANAGE_WINDOW
+
 #include <QDialog>
 #include <QSql>
 #include <vector>
@@ -9,6 +10,7 @@ struct SALE_GOODS;
 struct IN_GOODS;
 class goods_info;
 class QSaleDB;
+
 namespace Ui{
     class goods_manage_window;
 }

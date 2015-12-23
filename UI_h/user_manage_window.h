@@ -3,9 +3,8 @@
 
 #include <QDialog>
 #include <QSql>
-#include "people.h"
-#include "login_window.h"
 
+class QPeopleDB;
 
 namespace Ui{
     class user_manage_window;
