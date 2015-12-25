@@ -8,7 +8,7 @@
 #include <QSqlError>
 #include <QDebug>
 
-#define QDEBUG
+//#define QDEBUG
 
 struct SALE_GOODS{
     QString code;
@@ -63,12 +63,21 @@ public:
         }
 
     }
+    void check_database(){
+        if (!goods_db.open()) {
+            this -> goods_db = QSqlDatabase::addDatabase("QSQLITE","connection_c");
+            this -> goods_db.setDatabaseName("db2.db");
+        }
+        qDebug() << "reset";
+    }
 
     QStringList find(QString code,int count){
+        check_database();
         QStringList ans;
         QStringList b_ans;
         b_ans.push_back("233");
         QString new_count;
+        if (!goods_db.open()) qDebug() << "nnn";
         QSqlQuery query(this -> goods_db);
 
         query.exec("select * from goods where code like \'" + code + "\';");
@@ -87,6 +96,7 @@ public:
     }
 
     void update(std::vector<SALE_GOODS *>goods_list){
+        check_database();
         QSqlQuery query(this -> goods_db);
         for (std::vector<SALE_GOODS *>::iterator it = goods_list.begin() ; it != goods_list.end(); ++it){
             query.exec("update goods set counts="+QString::number((*it) -> store,10)
@@ -97,6 +107,7 @@ public:
 
 
     QStringList add(QString code,int count){
+        check_database();
         QStringList ans;
         QStringList bns;
         bns.push_back("0");
@@ -111,6 +122,7 @@ public:
         return ans;
     }
     bool add_new(IN_GOODS g){
+        check_database();
         QSqlQuery query(this -> goods_db);
         query.exec("insert into goods (code,name,counts,buy_price,sale_price,time)\
                    values ("+ g.code +",\'" + g.name +"\'," + g.count + "," + g.iprice + "," + g.oprice +",\'2015-12-18\');");
@@ -147,15 +159,22 @@ public:
                         YEAR char(20) NOT NULL\
                        );");
             query.exec("insert into sale (code,name,sale,counts,buy_price,sale_price,time,year)\
-                       values (6922711091396,\"NoteBook\",1,95,100,200,\'11:51:06\',\"2015-11-11\");" );
+                       values (6922711091396,\"NoteBook\",0,95,100,200,\'11:51:06\',\"2015-11-11\");" );
             query.exec("insert into sale (code,name,sale,counts,buy_price,sale_price,time,year)\
-                       values (6922711091397,\"TextBook\",1,195,120,250,\'13:30:02\',\"2014-12-20\");" );
+                       values (6922711091397,\"TextBook\",0,195,120,250,\'13:30:02\',\"2014-12-20\");" );
 #endif
         }
 
     }
+    void check_database(){
+        if (!sale_db.open()) {
+            this -> sale_db = QSqlDatabase::addDatabase("QSQLITE","connection_c");
+            this -> sale_db.setDatabaseName("db3.db");
+        }
+    }
 
     void update_o(std::vector<SALE_GOODS *>goods_list){
+        check_database();
         QSqlQuery query(this -> sale_db);
         for (std::vector<SALE_GOODS *>::iterator it = goods_list.begin() ; it != goods_list.end(); ++it){
             SALE_GOODS *g = (*it);
@@ -170,6 +189,7 @@ public:
         }
     }
     void update_i(std::vector<SALE_GOODS *>goods_list){
+        check_database();
         QSqlQuery query(this -> sale_db);
         for (std::vector<SALE_GOODS *>::iterator it = goods_list.begin() ; it != goods_list.end(); ++it){
             SALE_GOODS *g = (*it);
@@ -184,7 +204,8 @@ public:
         }
     }
     void update_n(IN_GOODS g){
-         QSqlQuery query(this -> sale_db);
+        check_database();
+        QSqlQuery query(this -> sale_db);
         query.exec("insert into sale (code,name,sale,counts,buy_price,time,year)\
                    values (" + g.code +",\'" +
                            g.name +"\',0," + g.count  + "," + g.iprice
@@ -196,6 +217,7 @@ public:
     }
 
     std::vector< QStringList > search(QString f_date,QString t_date){
+       check_database();
        QSqlQuery query(this -> sale_db);
        QStringList ans;
        std::vector<QStringList> vans;

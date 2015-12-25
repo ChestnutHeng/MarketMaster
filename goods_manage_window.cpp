@@ -24,6 +24,9 @@ goods_manage_window::goods_manage_window(QWidget *parent):
 goods_manage_window::~goods_manage_window()
 {
     delete ui;
+    delete sale_db;
+    delete goods_db;
+    delete g;
 }
 
 void insert_row(QTableWidget *table_widget,QStringList str){

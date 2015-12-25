@@ -7,7 +7,7 @@
 #include <QSqlError>
 #include <QDebug>
 
-#define PDEBUG
+//#define PDEBUG
 
 enum PERMISSION{ADMIN,USER,GUEST};
 
@@ -51,7 +51,16 @@ public:
         }
 
     }
+
+    void check_database(){
+        if (!people_db.open()) {
+            this -> people_db = QSqlDatabase::addDatabase("QSQLITE","connection_c");
+            this -> people_db.setDatabaseName("db1.db");
+        }
+    }
+
     bool find(PEOPLE &p){
+        check_database();
         qDebug() << "find:" << p.name << p.password;
         QSqlQuery query(this -> people_db);
 
@@ -79,6 +88,7 @@ public:
         return false;
     }
     bool add(PEOPLE &p){
+        check_database();
         QString per = "0";
         if(p.permission != ADMIN) per = "1";
         if(permission != ADMIN){
@@ -91,6 +101,7 @@ public:
     }
 
     bool del(PEOPLE &p){
+        check_database();
         if(permission != ADMIN){
            // return false;
         }

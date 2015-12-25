@@ -21,6 +21,8 @@ goods_history::~goods_history()
 {
 
     delete ui;
+    delete sale_db;
+
 }
 
 void insert_row_h(QTableWidget *table_widget,QStringList str){

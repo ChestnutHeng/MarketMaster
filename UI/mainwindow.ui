@@ -241,6 +241,9 @@
    </property>
   </action>
   <action name="actionGoodsManage">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>GoodsManage</string>
    </property>

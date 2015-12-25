@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect
     connect(ui->actionClear,&QAction::triggered,this,&MainWindow::clear);
     connect(ui->actionExit,&QAction::triggered,this,&MainWindow::close);
+    connect(ui->actionGoodsHistory,&QAction::triggered,this,&MainWindow::on_gh_p_clicked);
+    connect(ui->actionGoodsManage,&QAction::triggered,this,&MainWindow::on_g1_clicked);
+    connect(ui->actionUserManage,&QAction::triggered,this,&MainWindow::on_u1_clicked);
     //uiset
     TableSet();
         //label
@@ -54,6 +57,7 @@ void MainWindow::TableSet(){
 void MainWindow::HideButtons(){
     ui -> g1 -> hide();
     ui -> u1 -> hide();
+    ui ->actionUserManage ->setEnabled(false);
 }
 
 void MainWindow::flush_price(){
@@ -72,8 +76,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_u1_clicked()
 {
-//    QDialog *d = new QDialog(this);
-//    d -> show();
+
     user_manage_window *u = new user_manage_window(this);
     u -> show();
 }
@@ -104,8 +107,7 @@ void MainWindow::on_search_b_clicked()
         new_goods ->store = _data[2].toInt();
         new_goods ->count = count;
         new_goods ->price = _data[4].toFloat();
-//        for(int i = 0;i < _data.size();++i)
-//            qDebug() << _data[i];
+
 
         bool find_tag = false;
         for(unsigned int i = 0;i < goods_list.size(); ++i){
@@ -158,7 +160,6 @@ void MainWindow::on_remove_b_clicked()
 
     flush_price();
 }
-//6922711091396
 
 
 void MainWindow::on_done_b_clicked()
