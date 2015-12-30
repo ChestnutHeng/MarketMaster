@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionGoodsManage,&QAction::triggered,this,&MainWindow::on_g1_clicked);
     connect(ui->actionUserManage,&QAction::triggered,this,&MainWindow::on_u1_clicked);
     //uiset
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
     TableSet();
         //label
     QFont frt;

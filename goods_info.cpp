@@ -7,6 +7,9 @@ goods_info::goods_info(QWidget *parent):
 {
     ui = new Ui::goods_info;
     ui -> setupUi(this);
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
+
     p = (MainWindow *)this ->parentWidget();
 }
 
@@ -25,6 +28,8 @@ void goods_info::on_pushButton_clicked()
 
     if(new_goods.code == "" || new_goods.count == "" ||
             new_goods.name == "" || new_goods.iprice == "" || new_goods.oprice == ""){
+        QMessageBox::information(this, QObject::tr("Advise.."),
+                              QObject::tr("Every item shouldn't be Empty!"));
         return;
     }
     p ->goods_db->add_new(new_goods);

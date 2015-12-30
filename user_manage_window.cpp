@@ -12,6 +12,9 @@ user_manage_window::user_manage_window(QWidget *parent):
 {
     ui = new Ui::user_manage_window;
     ui -> setupUi(this);
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
+
     people = new QPeopleDB();
 }
 
@@ -28,7 +31,7 @@ void user_manage_window::on_add_b_clicked()
     p.password = ui ->pwd_l ->text();
     if(p.name == "" || p.password == ""){
         QMessageBox::information(this, QObject::tr("Error"),
-                                tr("Can't be null"));
+                                tr("Every item can't be null"));
         return;
     }
     if(ui ->admin_c ->isChecked()){

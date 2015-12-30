@@ -13,6 +13,8 @@ login_window::login_window(QWidget *parent):
     ui = new Ui::login_window;
     people  = new QPeopleDB();
     ui -> setupUi(this);
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
 
     QPixmap pix;
     pix.load(":/logo/logo2");

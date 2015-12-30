@@ -18,6 +18,9 @@ goods_manage_window::goods_manage_window(QWidget *parent):
     sale_db = new QSaleDB();
     g = new goods_info(this);
 
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
+
     TableSet();
 }
 

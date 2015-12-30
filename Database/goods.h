@@ -68,7 +68,6 @@ public:
             this -> goods_db = QSqlDatabase::addDatabase("QSQLITE","connection_c");
             this -> goods_db.setDatabaseName("db2.db");
         }
-        qDebug() << "reset";
     }
 
     QStringList find(QString code,int count){
@@ -77,7 +76,6 @@ public:
         QStringList b_ans;
         b_ans.push_back("233");
         QString new_count;
-        if (!goods_db.open()) qDebug() << "nnn";
         QSqlQuery query(this -> goods_db);
 
         query.exec("select * from goods where code like \'" + code + "\';");

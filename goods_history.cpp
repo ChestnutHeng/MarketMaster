@@ -10,9 +10,13 @@ goods_history::goods_history(QWidget *parent) :
 {
     sale_db = new QSaleDB();
     ui->setupUi(this);
+    this->setMinimumSize(this->width(),this->height());
+    this->setMaximumSize(this->width(),this->height());
+
     QFont frt;
     frt.setPointSize(18);
     ui -> sum_l -> setFont(frt);
+
     TableSet();
 }
 
